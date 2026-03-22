@@ -19,8 +19,15 @@ app.use(express.urlencoded({ extended: true }));
 
 //Cors
 app.use(cors({
-  origin: process.env.CLIENT_URL,  // Your frontend URL
-  credentials: true                 // Allow credentials like cookies
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (origin === process.env.CLIENT_URL) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
 
 const path = require('path');
@@ -45,7 +52,9 @@ app.use('/api/v1/admin/newsletter', require('./routes/newsletter'));
 
 app.use("/api/v1/admin/campaign", campaignRoute);
 
-
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 require('./jobs/sendReminders');
 

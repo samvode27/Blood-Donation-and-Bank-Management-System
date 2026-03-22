@@ -1,0 +1,178 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background styling */
+body {
+  background: linear-gradient(135deg, #ffe5e5, #ffffff, #ffd6d6);
+}
+
+/* Main container */
+.auth-container {
+  background: #ffffff;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.admin-login-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.auth-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #c62828;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #ef5350;
+  box-shadow: 0 0 0 2px rgba(239, 83, 80, 0.2);
+}
+
+/* Labels */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Error message */
+.text-red-500 {
+  color: #e53935;
+  font-size: 12px;
+}
+
+/* Shake animation for errors */
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* Button */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(to right, #e53935, #d32f2f);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #c62828, #b71c1c);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Password requirements box */
+.bg-gray-50 {
+  background: #fafafa;
+}
+
+.border {
+  border: 1px solid #eee;
+}
+
+.rounded-md {
+  border-radius: 8px;
+}
+
+/* Password strength bar */
+.h-2 {
+  height: 8px;
+}
+
+.bg-gray-200 {
+  background: #eee;
+}
+
+.bg-green-500 {
+  background: #4caf50;
+}
+
+.bg-yellow-400 {
+  background: #fbc02d;
+}
+
+.bg-orange-400 {
+  background: #fb8c00;
+}
+
+.bg-red-500 {
+  background: #e53935;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Icons inside input */
+.input-group {
+  position: relative;
+}
+
+.input-group span {
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  cursor: pointer;
+  color: #777;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

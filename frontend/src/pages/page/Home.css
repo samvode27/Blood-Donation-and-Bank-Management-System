@@ -1,0 +1,468 @@
+/* Navbar animation */
+
+@keyframes pulseSoft {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-soft{
+  animation: pulseSoft 2s infinite;
+}
+
+
+@keyframes slideDown{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.animate-slideDown{
+  animation: slideDown 0.3s ease-in-out;
+}
+
+/* NAV LINK BASE */
+
+.nav-link{
+  color:#374151;
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+  transition:all .35s ease;
+}
+
+
+/* Hover effect */
+
+.nav-link:hover{
+  color:#dc2626;
+  transform:translateY(-2px) scale(1.05);
+}
+
+/* Animated underline */
+
+.nav-underline{
+  position:absolute;
+  left:50%;
+  bottom:-4px;
+  height:2px;
+  width:0%;
+  background:linear-gradient(90deg,#ef4444,#b91c1c);
+  transform:translateX(-50%);
+  transition:width .35s ease;
+}
+
+.nav-link:hover .nav-underline{
+  width:75%;
+}
+
+
+/* Ripple hover background */
+
+.nav-link::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:8px;
+  background:radial-gradient(circle at center,
+  rgba(239,68,68,0.25) 0%,
+  transparent 70%);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+
+.nav-link:hover::before{
+  opacity:1;
+}
+
+
+/* Active link */
+
+.nav-link.active{
+  color:#dc2626;
+}
+
+.nav-link.active .nav-underline{
+  width:75%;
+}
+
+
+/* Smooth press effect */
+
+.nav-link:active{
+  transform:scale(.95);
+}
+
+/********************************************************************/
+/* HERO BACKGROUND */
+
+.hero-section{
+  background: linear-gradient(135deg,#7f1d1d,#b91c1c,#ef4444);
+}
+
+/* HERO TITLE HIGHLIGHT */
+
+.hero-highlight{
+  background: linear-gradient(90deg,#fecaca,#ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HERO BUTTONS */
+
+.hero-btn-primary{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  border-radius:50px;
+  font-weight:600;
+  background:#ffffff;
+  color:#b91c1c;
+  transition:all .3s ease;
+}
+
+.hero-btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero-btn-secondary{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  border-radius:50px;
+  border:2px solid white;
+  color:white;
+  transition:all .3s ease;
+}
+
+.hero-btn-secondary:hover{
+  background:white;
+  color:#b91c1c;
+}
+
+/* HERO IMAGE */
+
+.hero-image-container{
+  position:relative;
+  border-radius:50%;
+  padding:12px;
+  background:white;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+.hero-image{
+  width:320px;
+  height:320px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+/* STATS */
+
+.hero-stat h3{
+  font-size:25px;
+  font-weight:700;
+}
+
+.hero-stat p{
+  font-size:14px;
+  opacity:.9;
+}
+
+/* FLOATING ICONS */
+
+.floating-icon{
+  position:absolute;
+  width:50px;
+  height:50px;
+  background:white;
+  color:#b91c1c;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  animation:float 4s ease-in-out infinite;
+}
+
+.icon1{
+  top:20%;
+  left:-20px;
+}
+
+.icon2{
+  bottom:10%;
+  right:-20px;
+}
+
+.icon3{
+  top:-20px;
+  right:30%;
+}
+
+
+/* FLOAT ANIMATION */
+
+@keyframes float{
+
+  0%{transform:translateY(0)}
+
+  50%{transform:translateY(-12px)}
+
+  100%{transform:translateY(0)}
+
+}
+
+
+/**************************************************************************/
+/* ===== Statistics Section ===== */
+
+section.bg-light {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+
+/* Card Styling */
+section .card {
+  border-radius: 18px !important;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* Hover Effect */
+section .card:hover {
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+}
+
+/* Gradient top border animation */
+section .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg,#ff4d4d,#ff0000,#ff4d4d);
+  background-size: 200% 200%;
+  animation: gradientMove 5s ease infinite;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+@keyframes gradientMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Counter numbers */
+#donors-counter,
+#donations-counter,
+#lives-counter,
+#centers-counter{
+  font-size: 2.7rem;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 15px rgba(255,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+/* Counter hover glow */
+.card:hover #donors-counter,
+.card:hover #donations-counter,
+.card:hover #lives-counter,
+.card:hover #centers-counter{
+  color: #ff0000;
+  text-shadow: 0 6px 25px rgba(255,0,0,0.45);
+}
+
+/* Icon Styling */
+.card i {
+  transition: all 0.3s ease;
+}
+
+/* Floating background animation */
+.card::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background: radial-gradient(circle, rgba(255,0,0,0.08), transparent);
+  top:-40px;
+  right:-40px;
+  border-radius:50%;
+  transition: all .4s ease;
+}
+
+/* Label text */
+.card span{
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+
+/* Responsive Improvements */
+
+@media (max-width: 992px){
+  section .card{
+    padding: 5px;
+  }
+
+  #donors-counter,
+  #donations-counter,
+  #lives-counter,
+  #centers-counter{
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 768px){
+  section .card{
+    border-radius:14px !important;
+  }
+
+  #donors-counter,
+  #donations-counter,
+  #lives-counter,
+  #centers-counter{
+    font-size: 2rem;
+  }
+
+  .card span{
+    font-size: .85rem;
+  }
+}
+
+@media (max-width: 480px){
+  #donors-counter,
+  #donations-counter,
+  #lives-counter,
+  #centers-counter{
+    font-size: 1.8rem;
+  }
+}
+
+/* Smooth animation when section loads */
+section .card{
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/********************************************************************************/
+/* COMPATIBILITY SECTION */
+section.bg-light {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+.compatibility-card{
+  border-radius:18px;
+
+  transition:all .35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Glow Border */
+
+.compatibility-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  opacity:.3;
+}
+
+
+/* SECTION TITLE EFFECT */
+
+h2 span{
+  position:relative;
+}
+
+h2 span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:4px;
+  border-radius:4px;
+  animation:underlinePulse 3s infinite;
+}
+
+@keyframes underlinePulse{
+
+  0%{opacity:.4}
+
+  50%{opacity:1}
+
+  100%{opacity:.4}
+
+}
+
+
+/* FLOATING BLOOD CELLS */
+
+.blood-cell{
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#ef4444;
+  border-radius:50%;
+  opacity:.25;
+  animation:floatBlood 6s infinite ease-in-out;
+}
+
+@keyframes floatBlood{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-20px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width:768px){
+
+  .compatibility-card{
+    padding:20px;
+  }
+
+  h2{
+    font-size:28px;
+  }
+
+}

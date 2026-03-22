@@ -1,0 +1,438 @@
+/* Reset some defaults */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dark mode toggle */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .donors-page {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.donors-page {
+  padding: 2rem;
+  min-height: 100vh;
+  background: #f8f9fa;
+  color: #333;
+}
+
+td[data-label="Blood Group"],
+td[data-label="Disease"] {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.header h4 {
+  font-weight: 700;
+  color: #007bff;
+}
+
+.action-buttons-group {
+  display: flex;
+  justify-content: flex-end; /* push buttons to right */
+  flex-wrap: wrap;           /* wrap buttons on small screens */
+  gap: 0.5rem;               /* space between buttons */
+  margin-top: 1rem;
+}
+
+/* Your existing button styles remain, with minor improvements */
+.action-buttons-group button { 
+  background: linear-gradient(45deg, #007bff, #00b4d8);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 0.95rem;
+  min-width: 120px;
+}
+
+.action-buttons-group button:hover {
+  background: linear-gradient(45deg, #0056b3, #0077b6);
+}
+
+/* Optional: make buttons full-width on very small screens */
+@media (max-width: 480px) {
+  .action-buttons-group {
+    justify-content: center;
+  }
+  .action-buttons-group button {
+    width: 100%;
+  }
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-input,
+.filter-select {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  flex: 1 1 250px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  color: #fff;
+  z-index: 10000;
+  font-weight: 600;
+  animation: fadein 0.3s ease;
+}
+
+.toast-notification.success {
+  background: #28a745;
+}
+
+.toast-notification.error {
+  background: #dc3545;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Donors Table */
+.donors-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.donors-table th,
+.donors-table td {
+  padding: 0.75rem;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #dee2e6;
+}
+
+.donors-table th {
+  background: linear-gradient(45deg, #007bff, #00b4d8);
+  color: #fff;
+  font-weight: 600;
+}
+
+.donors-table tbody tr:nth-child(odd) {
+  background: #f2f9ff;
+}
+
+.donors-table tbody tr:nth-child(even) {
+  background: #e9f4ff;
+}
+
+.donors-table tbody tr:hover {
+  background: #d0ebff;
+  cursor: pointer;
+}
+
+.dark-mode .donors-table th {
+  background: linear-gradient(45deg, #1e3a8a, #2563eb);
+}
+
+.dark-mode .donors-table td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.donor-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff;
+}
+
+/* Action buttons */
+.action-buttons button {
+  background: transparent;
+  border: none;
+  color: #007bff;
+  transition: transform 0.2s ease;
+}
+
+.action-buttons button.delete {
+  color: #dc3545;
+}
+
+.action-buttons button:hover {
+  transform: scale(1.2);
+}
+
+/* Verified icons */
+.verified-cell svg {
+  vertical-align: middle;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.pagination button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pagination button:hover {
+  background: #0056b3;
+}
+
+.pagination button.active {
+  background: #28a745;
+}
+
+/* Modals */
+.modal-content {
+  border-radius: 8px;
+}
+
+.modal-header {
+  background: linear-gradient(45deg, #007bff, #00b4d8);
+  color: #f9f7f7;
+}
+
+.modal-footer .btn-primary {
+  background: #007bff;
+  border: none;
+}
+
+.modal-footer .btn-primary:hover {
+  background: #0056b3;
+}
+
+.modal-footer .btn-danger {
+  background: #dc3545;
+  border: none;
+}
+
+.modal-footer .btn-danger:hover {
+  background: #b21f2d;
+}
+
+/* Edit Form */
+.edit-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.edit-form label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.edit-form input,
+.edit-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.edit-form input:focus,
+.edit-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.edit-form .checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.edit-form .checkbox-group label {
+  margin-left: 0.5rem;
+}
+
+.edit-form .form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.profile-image-preview {
+  text-align: center;
+}
+
+/* Responsive table */
+@media (max-width: 992px) {
+  .donors-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .donors-table thead, .donors-table tbody, .donors-table th, .donors-table td, .donors-table tr {
+    display: block;
+  }
+  .donors-table tr {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #dee2e6;
+  }
+  .donors-table td {
+    text-align: left;
+    padding: 0.5rem;
+    border: none;
+  }
+  .donors-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+    color: #007bff;
+  }
+}
+
+
+.attractive-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+.attractive-table th,
+.attractive-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.attractive-table th {
+  background-color: #f7f7f7;
+  color: #333;
+  font-weight: 600;
+}
+
+.attractive-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.attractive-table tr:hover {
+  background-color: #eef6ff;
+  transition: background-color 0.3s ease;
+}
+
+.history-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.history-card {
+  background: #f0f8ff;
+  border: 1px solid #d0e3ff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: #333;
+}
+
+.history-card .history-bloodgroup {
+  font-weight: bold;
+  color: #004080;
+}
+
+.history-card .history-date {
+  font-size: 12px;
+  color: #666;
+}
+
+.disease-card {
+  background: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+}
+.dark-mode .attractive-table th {
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+.dark-mode .attractive-table td {
+  color: #ddd;
+}
+
+.dark-mode .attractive-table tr:hover {
+  background-color: #3a3a3a;
+}
+
+.dark-mode .history-card {
+  background: #333;
+  border-color: #555;
+  color: #ddd;
+}
+
+.dark-mode .disease-card {
+  background: #5a4d1d;
+  border-color: #806c2c;
+  color: #f0e5b2;
+}
+
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+/* Approved */
+.status-badge.approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* Rejected */
+.status-badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Pending */
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}

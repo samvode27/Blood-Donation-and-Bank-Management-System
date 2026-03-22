@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = "http://localhost:8000/api/v1"
+const BASE_URL = "https://blood-donation-and-bank-management-system.onrender.com/api/v1"
 
 export const publicRequest = axios.create({
    baseURL: BASE_URL,
@@ -8,6 +8,6 @@ export const publicRequest = axios.create({
 })
 
 export const adminRequest = axios.create({
-   baseURL: "http://localhost:8000/api/v1/admin",
+   baseURL: "https://blood-donation-and-bank-management-system.onrender.com/api/v1/admin",
    withCredentials: true,
 });

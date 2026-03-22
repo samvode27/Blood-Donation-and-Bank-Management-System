@@ -5,7 +5,7 @@ const dbConnection = require('./utils/db');
 dotenv.config()
 
 //port
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 //server
 app.listen(PORT, () => {

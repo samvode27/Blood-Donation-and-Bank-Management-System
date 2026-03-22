@@ -17,16 +17,31 @@ app.use(cookieParser());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-//Cors
+const allowedOrigins = [
+  process.env.CLIENT_URL || "https://blood-donation-and-bank-management.vercel.app",
+  "http://localhost:3000"
+];
+
 app.use(cors({
   origin: function(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (origin === process.env.CLIENT_URL) {
+    if (!origin) return callback(null, true); // allow curl, Postman
+    if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     } else {
+      console.log("Blocked by CORS:", origin);
       return callback(new Error("Not allowed by CORS"));
     }
   },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
+
+// Explicitly handle preflight requests
+app.options("*", cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 

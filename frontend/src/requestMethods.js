@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = "https://blood-donation-and-bank-management-system.onrender.com/api/v1"
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const publicRequest = axios.create({
    baseURL: BASE_URL,

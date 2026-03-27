@@ -57,12 +57,12 @@ function App() {
       path: '/admin',
       element: admin.currentUser ? <Layout /> : <Navigate to="/adminlogin" />, // Safe check for currentUser
       children: [
-        { path: '/admin', element: <Admin /> },
-        { path: '/admin/donors', element: <Donors /> },
-        { path: '/admin/hospitals', element: <Hospitals /> },
-        { path: '/admin/requests', element: <BloodRequest /> },
-        { path: '/admin/newsletter', element: <Newsletter /> },
-        { path: '/admin/campaigns', element: <Campaigns /> },
+        { path: '', element: <Admin /> },
+        { path: 'donors', element: <Donors /> },
+        { path: 'hospitals', element: <Hospitals /> },
+        { path: 'requests', element: <BloodRequest /> },
+        { path: 'newsletter', element: <Newsletter /> },
+        { path: 'campaigns', element: <Campaigns /> },
 
       ]
     }

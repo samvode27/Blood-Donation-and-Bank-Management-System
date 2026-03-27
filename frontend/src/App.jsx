@@ -30,7 +30,12 @@ function App() {
   <Toaster position="top-right" />
 
   // Create a Layout component for admin
-  const Layout = () => <Menu />;
+  const Layout = () => (
+    <>
+      <Menu />
+      <Outlet />
+    </>
+  );
 
   // Define the router with conditional routes based on user state
   const router = createBrowserRouter([

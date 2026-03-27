@@ -58,8 +58,8 @@ const loginAdmin = async (req, res) => {
 
     res.cookie("adminToken", accessToken, {
       httpOnly: true,
-      secure: false, // true in production (with HTTPS)
-      sameSite: "Lax"
+      secure: true, // true in production (with HTTPS)
+      sameSite: "None"
     });
 
     res.status(200).json({ ...info, accessToken });

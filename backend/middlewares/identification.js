@@ -1,21 +1,3 @@
-// const jwt = require('jsonwebtoken');
-
-// const identifier = (req, res, next) => {
-//   const token = req.cookies?.donorToken;
-//   if (!token) return res.status(403).json({ success: false, message: 'Donor token missing' });
-
-//   try {
-//     req.user = jwt.verify(token, process.env.JWT_SEC);
-//     next();
-//   } catch {
-//     return res.status(401).json({ success: false, message: 'Invalid donor token' });
-//   }
-// };
-
-
-// module.exports = { identifier };
-
-
 const jwt = require('jsonwebtoken');
 
 const identifier = (req, res, next) => {

@@ -17,22 +17,14 @@ app.use(cookieParser());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  "http://localhost:3000"
-];
+// const allowedOrigins = [
+//   process.env.CLIENT_URL,
+//   "http://localhost:3000"
+// ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log("Blocked by CORS:", origin);
-      callback(null, false);
-    }
-  },
-  credentials: true
+  origin: "https://blood-donation-and-bank-management.vercel.app",
+  credentials: true,
 }));
 
 const path = require('path');

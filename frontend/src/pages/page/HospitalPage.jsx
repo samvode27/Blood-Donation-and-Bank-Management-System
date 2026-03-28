@@ -103,7 +103,7 @@ const HospitalPage = () => {
       const { data } = await publicRequest.get('/hospitals/me');
 
       const profileImageUrl = data.profileImage
-        ? (data.profileImage.startsWith('http') ? data.profileImage : `http://localhost:8000${data.profileImage}`)
+        ? (data.profileImage.startsWith('http') ? data.profileImage : `https://blood-donation-and-bank-management-system.onrender.com${data.profileImage}`)
         : '/images/default-avatar.png';
 
       setHospital({ ...data, profileImage: profileImageUrl });

@@ -263,7 +263,7 @@ const changePassword = async (req, res) => {
    const { userId, verified } = req.user;
    const { oldPassword, newPassword } = req.body;
    try {
-      const { error, value } = changePasswordSchema.validate({ oldPassword, newPassword });
+      const { error } = changePasswordSchema.validate({ oldPassword, newPassword });
 
       if (error) {
          return res.status(401).json({ success: false, message: error.details[0].message })

@@ -363,7 +363,7 @@ const sendForgotPasswordCode = async (req, res) => {
 const verifyForgotPasswordCode = async (req, res) => {
    const { email, providedCode, newPassword } = req.body;
    try {
-      const { error, value } = acceptForgotPasswordCodeSchema.validate({ email, providedCode, newPassword });
+      const { error } = acceptForgotPasswordCodeSchema.validate({ email, providedCode, newPassword });
 
       if (error) {
          return res.status(401).json({

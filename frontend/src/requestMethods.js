@@ -13,6 +13,7 @@ export const publicRequest = axios.create({
 // 🔥 ADD THIS
 publicRequest.interceptors.request.use((config) => {
    const hospital = JSON.parse(localStorage.getItem("hospital"));
+   const hospital = JSON.parse(localStorage.getItem("hospital"));
    const donor = JSON.parse(localStorage.getItem("donor"));
    const admin = JSON.parse(localStorage.getItem("admin"));
 

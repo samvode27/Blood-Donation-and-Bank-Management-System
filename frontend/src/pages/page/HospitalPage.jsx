@@ -587,7 +587,7 @@ const HospitalPage = () => {
                       ? URL.createObjectURL(hospital.profileImage)
                       : (typeof hospital.profileImage === 'string' && hospital.profileImage.startsWith('http'))
                         ? hospital.profileImage
-                        : '/images/default-avatar.png'
+                        : '/images/default-avatar.png'+
                   }
                   alt="Profile"
                   className="rounded-circle border border-4 border-primary shadow-sm"

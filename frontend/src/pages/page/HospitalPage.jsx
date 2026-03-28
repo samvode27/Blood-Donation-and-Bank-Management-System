@@ -587,13 +587,12 @@ const HospitalPage = () => {
                       ? URL.createObjectURL(hospital.profileImage)
                       : (typeof hospital.profileImage === 'string' && hospital.profileImage.startsWith('http'))
                         ? hospital.profileImage
-                        : '/images/default-avatar.png'+
+                        : '/images/default-avatar.png'
                   }
                   alt="Profile"
                   className="rounded-circle border border-4 border-primary shadow-sm"
                   style={{ width: '150px', height: '150px', objectFit: 'cover' }}
                 />
-
               </Col>
               <Col md={8}>
                 <h4 className="fw-bold mb-3">{hospital.name || 'N/A'}</h4>

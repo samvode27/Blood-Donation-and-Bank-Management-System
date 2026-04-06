@@ -72,7 +72,7 @@ const signup = async (req, res) => {
                         Thank you for registering with <strong>BloodBridge</strong>.
                      </p>
                      <div style="text-align: center; margin: 30px 0;">
-                        <a href="http://localhost:5173/hospitalverifycode" style="background-color: #1d3557; color: #fff; text-decoration: none; padding: 15px 25px; font-size: 16px; border-radius: 5px;">
+                        <a href="https://blood-donation-and-bank-management-system.vercel.app/hospitalverifycode" style="background-color: #1d3557; color: #fff; text-decoration: none; padding: 15px 25px; font-size: 16px; border-radius: 5px;">
                            ✅ Verify Your Email
                         </a>
                      </div>
@@ -96,8 +96,11 @@ const signup = async (req, res) => {
       });
 
    } catch (error) {
-      console.log(error);
-      res.status(500).json({ success: false, message: 'Server error' });
+      console.error("Signup error:", error);
+      res.status(500).json({
+         success: false,
+         message: error.message || "Server error"
+      });
    }
 };
 

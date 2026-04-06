@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Container, Row, Col, Card, Button, Modal, Form, Spinner, ProgressBar, Navbar, Nav } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/donorRedux';
 import {
   FaWeight, FaBirthdayCake, FaClock, FaTint, FaUserCheck, FaUserCircle, FaStethoscope,
-  FaSyringe, FaUtensils, FaChevronDown, FaHandHoldingHeart, FaSun, FaMoon, FaSignOutAlt, FaComments
+  FaSyringe, FaUtensils, FaChevronDown, FaSun, FaMoon, FaSignOutAlt
 } from 'react-icons/fa';
 
-import ChartJsImage from 'chartjs-to-image';
-
-import ScrollAnimation from 'react-animate-on-scroll';
 import 'animate.css/animate.compat.css';
 
 import annotationPlugin from 'chartjs-plugin-annotation';
@@ -67,7 +64,6 @@ const compatibilityMap = {
 
 
 const DonorPage = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

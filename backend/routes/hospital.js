@@ -65,7 +65,6 @@ router.patch('/verifyforgotpasswordcode', verifyForgotPasswordCode);
 // === Profile routes ===
 router.get("/me", identifier1, getMyProfile);
 router.put("/updateprofile/:id", identifier1, updateProfileInfo);
-// router.put('updateprofile/:id', updateProfileInfo);
 
 router.post("/uploadprofilepic", identifier1, upload.single("image"), uploadProfilePicture);
 
@@ -74,7 +73,6 @@ router.post('/', createHospital);
 router.get('/', getAllHospitals);
 router.get('/stats', getHospitalStats);
 router.get('/find/:id', getOneHospital);
-// router.put('/:id', updateHospital);
 
 router.put('/:id', uploadDocument.single("officialDocument"), updateHospital);
 

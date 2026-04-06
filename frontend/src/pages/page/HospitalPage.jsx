@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import {
-  Container, Button, Modal, Alert, Form, Table, Spinner, Pagination, Row, Col, Image, OverlayTrigger, Navbar, Nav
+  Container, Button, Modal, Alert, Form, Table, Spinner, Pagination, Row, Col, Navbar, Nav
 } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
-import { FaSun, FaMoon, FaEye, FaSignOutAlt, FaEdit, FaFileCsv, FaPlus, FaClock, FaCheck, FaCheckCircle, FaTimesCircle, FaTimes, FaFilePdf } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { FaEye, FaSignOutAlt, FaEdit, FaFileCsv, FaPlus, FaClock, FaCheckCircle, FaTimesCircle, FaTimes, FaFilePdf } from 'react-icons/fa';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, BarChart, Bar, ResponsiveContainer, Legend } from 'recharts';
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { useNavigate } from 'react-router-dom';

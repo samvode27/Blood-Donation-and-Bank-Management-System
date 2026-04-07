@@ -903,7 +903,7 @@ const Home = () => {
                 <div className="h-40 overflow-hidden">
                   {imageUrl ? (
                     <img
-                      src={`http://localhost:8000/uploads/${imageUrl}`}
+                      src={`https://blood-donation-and-bank-management-system.onrender.com/${imageUrl}`}
                       alt={title}
                       className="w-full h-full object-cover"
                     />

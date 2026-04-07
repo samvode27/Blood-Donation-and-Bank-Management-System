@@ -238,7 +238,7 @@ const Campaigns = () => {
             >
               {imageUrl ? (
                 <img
-                  src={`http://localhost:8000/uploads/${imageUrl}`}
+                  src={`https://blood-donation-and-bank-management-system.onrender.com/${imageUrl}`}
                   alt={title}
                   className="w-32 h-24 object-cover rounded"
                 />

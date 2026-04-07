@@ -58,7 +58,7 @@ router.post('/signin', signin);
 // === Verification routes ===
 router.patch('/sendverificationcode', sendVerificationCode);
 router.patch('/verifyverificationcode', verifyVerificationCode);
-router.patch('/changepassword', identifier, changePassword);
+router.patch('/changepassword', identifier1, changePassword);
 router.patch('/sendforgotpasswordcode', sendForgotPasswordCode);
 router.patch('/verifyforgotpasswordcode', verifyForgotPasswordCode);
 

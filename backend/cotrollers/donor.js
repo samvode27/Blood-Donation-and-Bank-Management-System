@@ -143,7 +143,6 @@ const signin = async (req, res) => {
             id: existingDonor._id,
             email: existingDonor.email,
             name: existingDonor.name,
-            password: existingDonor.password,
             tel: existingDonor.tel,
             address: existingDonor.address,
             bloodgroup: existingDonor.bloodgroup,
@@ -715,22 +714,27 @@ const rejectDonation = async (req, res) => {
 // controllers/donorController.js
 const getDonationsPerYear = async (req, res) => {
    try {
-      const result = await Donor.aggregate([
-         { $unwind: "$donationHistory" },
-         {
-            $group: {
-               _id: { $year: "$donationHistory.date" },
-               totalDonations: { $sum: 1 }, // Or $sum: "$donationHistory.amount" if you want units
-            },
+    const result = await Donor.aggregate([
+      {
+         $match: {
+            "donationHistory.date": { $type: "date" }
+         }
+      },
+      { $unwind: "$donationHistory" },
+      {
+         $group: {
+            _id: { $year: "$donationHistory.date" },
+            totalDonations: { $sum: 1 },
          },
-         {
-            $project: {
-               _id: 0,
-               year: "$_id",
-               totalDonations: 1,
-            },
+      },
+      {
+         $project: {
+            _id: 0,
+            year: "$_id",
+            totalDonations: 1,
          },
-         { $sort: { year: 1 } }
+      },
+      { $sort: { year: 1 } }
       ]);
 
       res.status(200).json(result);

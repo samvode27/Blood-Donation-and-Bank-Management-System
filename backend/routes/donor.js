@@ -1,8 +1,9 @@
 const express = require("express");
-const { createDonor, getAllDonor, updateDonor, getOneDonor, deleteDonor, getDonorStats, changePassword, signin, signup, 
-  sendVerificationCode, verifyVerificationCode, sendForgotPasswordCode, verifyForgotPasswordCode, getBloodStats, 
-  getBloodGroupStats, getTopDonors, recordDonation, getMyProfile, updateProfile, getDonationHistory, donateBlood, 
-  getDonationsPerYear, updateDonorByAdmin, approveDonation, rejectDonation } = require("../cotrollers/donor");
+const {
+  createDonor, getAllDonor, updateDonor, getOneDonor, deleteDonor, getDonorStats, changePassword, signin, signup,
+  sendVerificationCode, verifyVerificationCode, sendForgotPasswordCode, verifyForgotPasswordCode, getBloodGroupStats, getTopDonors,
+  getMyProfile, updateProfile, getDonationHistory, donateBlood, getDonationsPerYear, approveDonation, rejectDonation
+} = require("../controllers/donor"); // ✅ FIX spelling
 const router = express.Router();
 const { identifier } = require('../middlewares/identification')
 const Donor = require("../Models/Donor");
@@ -77,10 +78,10 @@ router.get("/top", getTopDonors);
 // In donors.js route file
 router.get('/count', async (req, res) => {
   try {
-    const all = await Donor.find(); // 👈 log all to debug
     const count = await Donor.countDocuments();
     res.status(200).json({ count });
   } catch (err) {
+    console.error(err); // ✅ ADD THIS
     res.status(500).json({ message: 'Failed to get donor count' });
   }
 });

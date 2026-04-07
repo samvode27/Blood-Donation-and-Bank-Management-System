@@ -1,5 +1,5 @@
 const express = require("express");
-const { createAdmin, updateAdmin, deleteAdmin, loginAdmin, registerAdmin, updateDonorByAdmin, updateHospitalByAdmin, getAdminProfile, updateAdminProfile, changeAdminPassword } = require("../cotrollers/admin");
+const { createAdmin, deleteAdmin, loginAdmin, registerAdmin, updateDonorByAdmin, updateHospitalByAdmin, getAdminProfile, updateAdminProfile, changeAdminPassword } = require("../cotrollers/admin");
 const { adminIdentifier } = require("../middlewares/adminIdentification");
 
 const router = express.Router();
@@ -36,11 +36,9 @@ router.put('/profile', adminIdentifier, updateAdminProfile);
 //delete Admin
 router.delete('/:id', deleteAdmin)
 
-router.put("/donors/:id", updateDonorByAdmin);
+router.put("/donors/:id", adminIdentifier, updateDonorByAdmin);
 
-// router.put("/hospitals/:id", updateHospitalByAdmin);
-
-router.put("/hospitals/:id", upload.single("officialDocument"), updateHospitalByAdmin);
+router.put("/hospitals/:id", adminIdentifier, upload.single("officialDocument"), updateHospitalByAdmin);
 
 router.get('/profile', adminIdentifier, getAdminProfile);
 

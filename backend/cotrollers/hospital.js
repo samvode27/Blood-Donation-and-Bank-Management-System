@@ -99,7 +99,8 @@ const signup = async (req, res) => {
       console.error("Signup error:", error);
       res.status(500).json({
          success: false,
-         message: error.message || "Server error"
+         message: error.message || "Server error",
+         stack: error.stack
       });
    }
 };
@@ -152,7 +153,6 @@ const signin = async (req, res) => {
             id: existingHospital._id,
             email: existingHospital.email,
             name: existingHospital.name,
-            password: existingHospital.password,
             tel: existingHospital.tel,
             address: existingHospital.address,
             verified: existingHospital.verified
@@ -344,7 +344,7 @@ const sendForgotPasswordCode = async (req, res) => {
       existingHospital.forgotPasswordCodeValidation = Date.now();
       await existingHospital.save()
 
-      return res.status(200).json({ success: false, message: 'Code sent!' })
+      return res.status(200).json({ success: true, message: 'Code sent!' })
 
    } catch (error) {
       console.log(error);

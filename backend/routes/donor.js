@@ -1,9 +1,9 @@
 const express = require("express");
 const {
-  createDonor, getAllDonor, updateDonor, getOneDonor, deleteDonor, getDonorStats, changePassword, signin, signup,
+  createDonor, getAllDonor, updateDonor, getOneDonor, deleteDonor, changePassword, signin, signup,
   sendVerificationCode, verifyVerificationCode, sendForgotPasswordCode, verifyForgotPasswordCode, getBloodGroupStats, getTopDonors,
   getMyProfile, updateProfile, getDonationHistory, donateBlood, getDonationsPerYear, approveDonation, rejectDonation
-} = require("../controllers/donor"); // ✅ FIX spelling
+} = require("../cotrollers/donor"); 
 const router = express.Router();
 const { identifier } = require('../middlewares/identification')
 const Donor = require("../Models/Donor");

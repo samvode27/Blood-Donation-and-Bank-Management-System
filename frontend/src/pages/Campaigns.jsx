@@ -238,7 +238,7 @@ const Campaigns = () => {
             >
               {imageUrl ? (
                 <img
-                  src={`${VITE_API_URL}${imageUrl}`}
+                  src={imageUrl}
                   alt={title}
                   className="w-32 h-24 object-cover rounded"
                 />

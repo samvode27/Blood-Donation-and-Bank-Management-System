@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Campaign = require('../Models/Campaign');
 const createUploader = require('../middlewares/upload');
-const fs = require('fs');
-const path = require('path');
 
 const upload = createUploader('campaigns');
 
@@ -11,7 +9,7 @@ const upload = createUploader('campaigns');
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     const { title, description, date, location } = req.body;
-    const imageUrl = req.file ? `campaigns/${req.file.filename}` : '';
+    const imageUrl = req.file ? req.file.path : '';
 
     if (!title || !description || !date) {
       return res.status(400).json({ error: 'Title, description and date are required.' });
@@ -46,9 +44,6 @@ router.delete('/:id', async (req, res) => {
     // Delete image file if exists
     if (campaign.imageUrl) {
       const imagePath = path.join(__dirname, '..', campaign.imageUrl);
-      fs.unlink(imagePath, (err) => {
-        if (err) console.error('Failed to delete image file:', err);
-      });
     }
 
     await Campaign.findByIdAndDelete(req.params.id);
@@ -79,7 +74,7 @@ router.put('/:id', upload.single('image'), async (req, res) => {
     campaign.date = date || campaign.date;
     campaign.location = location || campaign.location;
     if (req.file) {
-      campaign.imageUrl = `/campaigns/${req.file.filename}`;
+      campaign.imageUrl = req.file.path;
     }
 
     await campaign.save();

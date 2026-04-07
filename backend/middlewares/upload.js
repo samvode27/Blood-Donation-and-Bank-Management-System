@@ -31,18 +31,24 @@
 // module.exports = createUploader;
 
 
-const multer = require('multer');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const cloudinary = require('../config/cloudinary');
+// middlewares/upload.js
 
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'blood-donation',
-    allowed_formats: ['jpg', 'png', 'jpeg'],
-  },
-});
+const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
 
-const upload = multer({ storage });
+// ✅ THIS is the function your route expects
+const createUploader = (folderName) => {
+  const storage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+      folder: folderName,
+      allowed_formats: ["jpg", "jpeg", "png"],
+    },
+  });
 
-module.exports = upload;
+  return multer({ storage });
+};
+
+module.exports = createUploader;
+

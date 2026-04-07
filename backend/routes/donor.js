@@ -86,7 +86,7 @@ router.get('/count', async (req, res) => {
   }
 });
 
-router.get('/donations/yearly', identifier, getDonationsPerYear);
+router.get('/donations/yearly', getDonationsPerYear);
 
 
 module.exports = router;

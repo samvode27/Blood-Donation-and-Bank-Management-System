@@ -54,7 +54,7 @@ const signup = async (req, res) => {
                      You're now part of a community of heroes. Just one more step:
                   </p>
                   <div style="text-align: center; margin: 30px 0;">
-                     <a href="http://localhost:5173/donorverifycode" style="background-color: #1d3557; color: #fff; text-decoration: none; padding: 15px 25px; font-size: 16px; border-radius: 5px;">
+                     <a href="https://blood-donation-and-bank-management-system.onrender.com//donorverifycode" style="background-color: #1d3557; color: #fff; text-decoration: none; padding: 15px 25px; font-size: 16px; border-radius: 5px;">
                      ✅ Verify Your Email
                      </a>
                   </div>
@@ -76,7 +76,7 @@ const signup = async (req, res) => {
       });
 
    } catch (err) {
-      console.error("Signup error:", err);
+      cconsole.error("Signup error:", err.message, err.stack);
       res.status(500).json({ success: false, message: 'Server error' });
    }
 };

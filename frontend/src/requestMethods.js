@@ -5,6 +5,7 @@ console.log("API URL:", BASE_URL);
 
 export const publicRequest = axios.create({
    baseURL: BASE_URL,
+   withCredentials: true
 })
 
 export const adminRequest = axios.create({

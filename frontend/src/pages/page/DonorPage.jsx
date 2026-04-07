@@ -754,7 +754,7 @@ const DonorPage = () => {
                       <div className="position-relative mb-3">
                         <img
                           src={donor.profileImage 
-                            ? `${VITE_API_URL}${donor.profileImage}` 
+                            ? `https://blood-donation-and-bank-management-system.onrender.com${donor.profileImage}` 
                             : '/images/default-avatar.png'}
                           alt="Profile"
                           className="rounded-circle border border-2 border-danger"
@@ -906,6 +906,7 @@ const DonorPage = () => {
                       ? `https://blood-donation-and-bank-management-system.onrender.com${donor.profileImage}`
                       : '/images/default-avatar.png'
                   }
+
                   alt="Profile"
                   className="rounded-circle border border-4 border-primary shadow-sm"
                   style={{ width: '150px', height: '150px', objectFit: 'cover' }}

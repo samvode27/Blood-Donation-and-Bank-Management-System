@@ -753,7 +753,7 @@ const DonorPage = () => {
                     <Card.Body>
                       <div className="position-relative mb-3">
                         <img
-                          src={donor.profileImage ? `http://localhost:8000${donor.profileImage}` : '/images/default-avatar.png'}
+                          src={donor.profileImage ? `https://blood-donation-and-bank-management-system.onrender.com/${donor.profileImage}` : '/images/default-avatar.png'}
                           alt="Profile"
                           className="rounded-circle border border-2 border-danger"
                           style={{ width: '90px', height: '90px', objectFit: 'cover' }}

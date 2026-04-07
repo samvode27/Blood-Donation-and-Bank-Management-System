@@ -250,7 +250,7 @@ const DonorPage = () => {
       const { data } = await publicRequest.get('/donors/me', { withCredentials: true });
 
       const profileImageUrl = data.profileImage
-        ? (data.profileImage.startsWith('http') ? data.profileImage : `http://localhost:8000${data.profileImage}`)
+        ? (data.profileImage.startsWith('http') ? data.profileImage : `https://blood-donation-and-bank-management-system.onrender.com${data.profileImage}`)
         : '';
 
       const latestDonation = data.donationHistory?.[data.donationHistory.length - 1];

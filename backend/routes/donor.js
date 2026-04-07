@@ -86,8 +86,7 @@ router.get('/count', async (req, res) => {
   }
 });
 
-router.get('/donations/yearly', getDonationsPerYear);
+router.get('/donations/yearly', identifier, getDonationsPerYear);
 
-// router.put("/admin/:id", updateDonorByAdmin);
 
 module.exports = router;

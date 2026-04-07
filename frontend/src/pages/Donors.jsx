@@ -384,7 +384,7 @@ const Donors = () => {
                 <img
                   src={
                     donor.profileImage
-                      ? `http://localhost:8000${donor.profileImage}`
+                      ? `https://blood-donation-and-bank-management-system.onrender.com/${donor.profileImage}`
                       : '/images/default-avatar.png'
                   }
                   alt={donor.name || "Profile"}
@@ -539,7 +539,7 @@ const Donors = () => {
               <img
                 src={
                   editForm.profileImage
-                    ? `http://localhost:8000${editForm.profileImage}`
+                    ? `${VITE_API_URL}${editForm.profileImage}`
                     : '/images/default-avatar.png'
                 }
                 alt={editForm.name || "Profile"}

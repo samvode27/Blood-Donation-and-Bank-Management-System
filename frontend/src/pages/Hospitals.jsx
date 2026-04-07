@@ -304,7 +304,7 @@ const Hospitals = () => {
                     <img
                       src={
                         hospital.profileImage
-                          ? `http://localhost:8000${hospital.profileImage}`
+                          ? `${VITE_API_URL}${hospital.profileImage}`
                           : '/images/default-avatar.png'
                       }
                       alt={hospital.name || "Profile"}
@@ -324,7 +324,7 @@ const Hospitals = () => {
                   <td>
                     {hospital.officialDocument ? (
                       <a
-                        href={`http://localhost:8000/uploads/${hospital.officialDocument}`}
+                        href={`https://blood-donation-and-bank-management-system.onrender.com/uploads/${hospital.officialDocument}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary text-decoration-underline"
@@ -435,7 +435,7 @@ const Hospitals = () => {
               {typeof editForm.licenseDocument === 'string' && editForm.licenseDocument && (
                 <div className="mb-2">
                   <a
-                    href={`http://localhost:8000/uploads/${editForm.licenseDocument}`}
+                    href={`https://blood-donation-and-bank-management-system.onrender.com/uploads/${editForm.licenseDocument}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

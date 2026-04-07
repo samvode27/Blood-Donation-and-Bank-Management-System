@@ -753,7 +753,9 @@ const DonorPage = () => {
                     <Card.Body>
                       <div className="position-relative mb-3">
                         <img
-                          src={donor.profileImage ? `https://blood-donation-and-bank-management-system.onrender.com/${donor.profileImage}` : '/images/default-avatar.png'}
+                          src={donor.profileImage 
+                            ? `${VITE_API_URL}${donor.profileImage}` 
+                            : '/images/default-avatar.png'}
                           alt="Profile"
                           className="rounded-circle border border-2 border-danger"
                           style={{ width: '90px', height: '90px', objectFit: 'cover' }}
@@ -899,7 +901,11 @@ const DonorPage = () => {
             <Row className="align-items-center">
               <Col md={4} className="text-center mb-3 mb-md-0">
                 <img
-                  src={donor.profileImage || '/images/default-avatar.png'}
+                  src={
+                    donor.profileImage
+                      ? `https://blood-donation-and-bank-management-system.onrender.com${donor.profileImage}`
+                      : '/images/default-avatar.png'
+                  }
                   alt="Profile"
                   className="rounded-circle border border-4 border-primary shadow-sm"
                   style={{ width: '150px', height: '150px', objectFit: 'cover' }}

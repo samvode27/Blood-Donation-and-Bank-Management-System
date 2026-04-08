@@ -3,15 +3,16 @@ const mongoose = require("mongoose");
 
 dotenv.config();
 
-const DB = process.env.DB;
-
 const dbConnection = async () => {
   try {
-    await mongoose.connect(DB);
+    await mongoose.connect(process.env.DB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Database Connected ✅");
   } catch (error) {
-    console.log("DB Error:", error.message);
-    setTimeout(dbConnection, 5000);
+    console.error("DB Error:", error.message);
+    process.exit(1); // ❗ Stop app if DB fails
   }
 };
 

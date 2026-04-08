@@ -12,6 +12,11 @@ const contactRoute = require("./routes/contact");
 const newsletterRoutes = require("./routes/newsletter");
 const campaignRoute = require("./routes/campaign"); 
 
+const { sendReminderEmails } = require('./jobs/sendReminders');
+
+// Run every 24 hours
+setInterval(sendReminderEmails, 24 * 60 * 60 * 1000);
+
 app.use(cookieParser());
 
 app.use(express.json())

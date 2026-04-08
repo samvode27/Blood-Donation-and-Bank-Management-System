@@ -53,7 +53,6 @@ app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
-require('./jobs/sendReminders');
 
 
 module.exports = app;

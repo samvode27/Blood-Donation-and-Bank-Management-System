@@ -1,11 +1,14 @@
 const app = require('./app');
 const dotenv = require("dotenv");
-const mongoose = require("mongoose");
 const dbConnection = require('./utils/db');
-dotenv.config()
 
-//port
-const PORT = process.env.PORT || 8000;
+dotenv.config();
+
+// ✅ CONNECT DB FIRST
+dbConnection();
+
+// ✅ USE RENDER PORT
+const PORT = process.env.PORT;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);

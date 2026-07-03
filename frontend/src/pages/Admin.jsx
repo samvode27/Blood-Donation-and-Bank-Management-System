@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, Legend, Label } from 'recharts';
 import { Droplet, Users, Hospital, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { publicRequest } from '../requestMethods'; // Adjust path if needed
-import './Admin.css';
+// import './Admin.css';
 
 const Admin = () => {
   const [bloodStats, setBloodStats] = useState([]);

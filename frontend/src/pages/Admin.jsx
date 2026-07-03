@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, Legend, Label } from 'recharts';
 import { Droplet, Users, Hospital, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { publicRequest } from '../requestMethods'; // Adjust path if needed
-// import './Admin.css';
+import './Admin.css';
 
 const Admin = () => {
   const [bloodStats, setBloodStats] = useState([]);
@@ -74,42 +74,28 @@ const Admin = () => {
       <h2 className="dashboard-title">Admin Dashboard</h2>
 
       <div className="summary-cards">
-        <div className="card">
-          <div className="card-header">
-            <Users size={20} />
-          </div>
+        <div className="card bg-primary text-white">
+          <Users size={28} />
           <h5>{summary.donors}</h5>
           <span>Total Donors</span>
         </div>
-
-        <div className="card">
-          <div className="card-header">
-            <Hospital size={20} />
-          </div>
+        <div className="card bg-success text-white">
+          <Hospital size={28} />
           <h5>{summary.hospitals}</h5>
           <span>Hospitals</span>
         </div>
-
-        <div className="card">
-          <div className="card-header">
-            <Droplet size={20} />
-          </div>
+        <div className="card bg-warning text-white">
+          <Droplet size={28} />
           <h5>{summary.requests}</h5>
           <span>Blood Requests</span>
         </div>
-
-        <div className="card">
-          <div className="card-header">
-            <ThumbsUp size={20} />
-          </div>
+        <div className="card bg-info text-white">
+          <ThumbsUp size={28} />
           <h5>{summary.approved}</h5>
           <span>Approved</span>
         </div>
-
-        <div className="card">
-          <div className="card-header">
-            <ThumbsDown size={20} />
-          </div>
+        <div className="card bg-danger text-white">
+          <ThumbsDown size={28} />
           <h5>{summary.rejected}</h5>
           <span>Rejected</span>
         </div>
@@ -206,7 +192,7 @@ const Admin = () => {
               <XAxis dataKey="name" />
               <YAxis allowDecimals={false} />
               <Tooltip />
-              <Line type="monotone" dataKey="value" stroke="#6366f1" strokeWidth={3}/>
+              <Line type="monotone" dataKey="value" stroke="#28a745" />
             </LineChart>
           </ResponsiveContainer>
         </div>
